@@ -2,17 +2,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import Button from 'react-bootstrap/Button';
 // import Badge from 'react-bootstrap/Badge';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   getAssets,
 } from '../redux/assets/assetsSlice';
 import styles from '../styles/assets.module.css';
 
 const Assets = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { assets, isLoading, error } = useSelector((state) => state.assets);
-  console.log('assets', assets.data);
   useEffect(() => {
     if (assets.length === 0) {
       dispatch(getAssets());
@@ -20,7 +19,7 @@ const Assets = () => {
   }, [dispatch, assets.length]);
 
   const handleAssetClick = (symbolId) => {
-    history.push(`/assets/${symbolId}`);
+    navigate(`/assets/${symbolId}`);
   };
 
   /* const handleCancelReserveRocket = (id) => {
@@ -39,27 +38,16 @@ const Assets = () => {
         {assets.data.map((asset) => {
           cont += 1;
           if (cont - aux === 3) { switching = !switching; aux = cont - 1; }
-          return switching ? (
+          let classSwitcher;
+          if (switching) {
+            classSwitcher = (cont % 2 === 0) ? styles.assetB : styles.assetA;
+          } else {
+            classSwitcher = (cont % 2 === 0) ? styles.assetA : styles.assetB;
+          }
+          return (
             <button
               key={asset.id}
-              className={(cont % 2 === 0) ? styles.assetB : styles.assetA}
-              type="button"
-              onClick={() => handleAssetClick(asset.id)}
-            >
-              <div className={styles.symbol}>{asset.symbol}</div>
-              <div className={styles.smallInfo}>
-                <p className={styles.name}>{asset.name}</p>
-                <p className={styles.priceUsd}>
-                  U$D:
-                  {' '}
-                  {parseFloat(asset.priceUsd).toFixed(4)}
-                </p>
-              </div>
-            </button>
-          ) : (
-            <button
-              key={asset.id}
-              className={(cont % 2 === 0) ? styles.assetA : styles.assetB}
+              className={classSwitcher}
               type="button"
               onClick={() => handleAssetClick(asset.id)}
             >

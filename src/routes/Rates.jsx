@@ -10,7 +10,6 @@ import styles from '../styles/assets.module.css';
 const Rates = () => {
   const dispatch = useDispatch();
   const { rates, isLoading, error } = useSelector((state) => state.rates);
-  console.log('rates', rates);
   useEffect(() => {
     if (rates.length === 0) {
       dispatch(getRates());

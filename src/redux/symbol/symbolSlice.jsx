@@ -7,10 +7,11 @@ const initialState = {
   error: undefined,
 };
 
-export const getSymbol = (id) => createAsyncThunk(
+export const getSymbol = createAsyncThunk(
   'Symbol/getSymbol',
-  async (thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
+      // console.log(`https://api.coincap.io/v2/assets/${id}`);
       const resp = await axios(`https://api.coincap.io/v2/assets/${id}`);
       console.log(resp.data);
       return resp.data;

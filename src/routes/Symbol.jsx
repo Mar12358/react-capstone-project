@@ -4,38 +4,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSymbol } from '../redux/symbol/symbolSlice';
 import styles from '../styles/symbol.module.css';
 
-const DetailPage = () => {
-  const dispatch = useDispatch();
-  const { symbolId } = useParams();
+const Symbol = () => {
+  const { id } = useParams();
   const { symbol, isLoading, error } = useSelector((state) => state.symbol);
+  const dispatch = useDispatch();
   useEffect(() => {
-    // Fetch symbol data using the symbolId
-    // Update the symbolData state with the fetched data
-    // Example:
-    // const fetchData = async () => {
-    //   const response = await fetch(`/api/symbols/${symbolId}`);
-    //   const data = await response.json();
-    //   setSymbolData(data);
-    // };
-    // fetchData();
-    dispatch(getSymbol(symbolId));
-  }, [dispatch, symbolId]);
+    dispatch(getSymbol(id));
+  }, [dispatch, id]);
 
   if (error) return <h2>Something went wrong</h2>;
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <div>
-      <h2>Symbol Detail</h2>
-      {/* Display the symbol detail using the symbolData */}
-      {/* Example: */}
-      {/* <div>Symbol Name: {symbolData.name}</div> */}
-      {/* <div>Symbol Price: {symbolData.price}</div> */}
+  let cont = 0;
+  return (isLoading || symbol.length === 0) ? (
+    <h1>Loading...</h1>
+  ) : (
+    <div className={styles.detailsWrapper}>
+      {Object.keys(symbol.data).map((key) => {
+        cont += 1;
+        return (
+          <div key={key} className={(cont % 2 === 0) ? styles.keyValuePairA : styles.keyValuePairB}>
+            <div className={styles.key}><p>{key}</p></div>
+            <div className={styles.value}><p>{symbol.data[key]}</p></div>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
-export default DetailPage;
+export default Symbol;
