@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 // import Badge from 'react-bootstrap/Badge';
 import {
   getAssets,
-} from '../redux/coins/coinsSlice';
+} from '../redux/assets/assetsSlice';
 import styles from '../styles/assets.module.css';
 
 const Assets = () => {
   const dispatch = useDispatch();
   const { assets, isLoading, error } = useSelector((state) => state.assets);
+  console.log('assets', assets.data);
   useEffect(() => {
     if (assets.length === 0) {
       dispatch(getAssets());
@@ -23,49 +24,44 @@ const Assets = () => {
     dispatch(cancelReserveRocket(id));
   }; */
   if (error) return <h2>Something went wrong</h2>;
-
-  return isLoading ? (
+  let cont = 0;
+  let aux = 0;
+  let switching = false;
+  return (isLoading || assets.length === 0) ? (
     <h1>Loading...</h1>
   ) : (
     <>
       <hr />
       <div className={styles.assetsWrapper}>
-        {assets.map((asset) => (
-          <div key={asset.asset_id} className={styles.asset}>
-            <img
-              className={styles.image}
-              src={asset.flickr_images[0]}
-              alt=""
-            />
-            {/* <div className={styles.rocketInfo}>
-              <h2>{asset.rocket_name}</h2>
-              <p className={styles.rocketDescription}>
-                {asset.reserved ? (
-                  <span className={styles.reserved}>
-                    <Badge bg="info">Reserved</Badge>
-                  </span>
-                ) : null}
-
-                {asset.description}
-              </p>
-              {asset.reserved ? (
-                <Button
-                  variant="outline-secondary"
-                  onClick={() => handleCancelReserveRocket(asset.rocket_id)}
-                >
-                  Cancel Reservation
-                </Button>
-              ) : (
-                <Button
-                  variant="primary"
-                  onClick={() => handleReserveRocket(asset.rocket_id)}
-                >
-                  Reserve Rocket
-                </Button>
-              )}
-            </div> */}
-          </div>
-        ))}
+        {assets.data.map((asset) => {
+          cont += 1;
+          if (cont - aux === 3) { switching = !switching; aux = cont - 1; }
+          return switching ? (
+            <div key={asset.id} className={(cont % 2 === 0) ? styles.assetB : styles.assetA}>
+              <div className={styles.symbol}>{asset.symbol}</div>
+              <div className={styles.smallInfo}>
+                <p className={styles.name}>{asset.name}</p>
+                <p className={styles.priceUsd}>
+                  U$D:
+                  {' '}
+                  {parseFloat(asset.priceUsd).toFixed(4)}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div key={asset.id} className={(cont % 2 === 0) ? styles.assetA : styles.assetB}>
+              <div className={styles.symbol}>{asset.symbol}</div>
+              <div className={styles.smallInfo}>
+                <p className={styles.name}>{asset.name}</p>
+                <p className={styles.priceUsd}>
+                  U$D:
+                  {' '}
+                  {parseFloat(asset.priceUsd).toFixed(4)}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </>
   );

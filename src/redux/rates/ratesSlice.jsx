@@ -1,32 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const urlAssets = 'https://api.coincap.io/v2/assets';
 const urlRates = 'https://api.coincap.io/v2/rates';
 
 const initialState = {
-  assets: [],
   rates: [],
   isLoading: false,
   error: undefined,
 };
 
-export const getAssets = createAsyncThunk(
-  'Assets/getAssets',
-  async (thunkAPI) => {
-    try {
-      const resp = await fetch(urlAssets);
-      return resp.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
-  },
-);
-
 export const getRates = createAsyncThunk(
   'Rates/getRates',
   async (thunkAPI) => {
     try {
-      const resp = await fetch(urlRates);
+      const resp = await axios(urlRates);
+      console.log(resp.data);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -34,8 +22,8 @@ export const getRates = createAsyncThunk(
   },
 );
 
-const coinsSlice = createSlice({
-  name: 'assets',
+const ratesSlice = createSlice({
+  name: 'rates',
   initialState,
   reducers: {
     /* reserveRocket: (state, action) => {
@@ -55,21 +43,21 @@ const coinsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getAssets.pending, (state) => {
+      .addCase(getRates.pending, (state) => {
         const pendingState = state;
         pendingState.isLoading = true;
       })
-      .addCase(getAssets.fulfilled, (state, action) => {
+      .addCase(getRates.fulfilled, (state, action) => {
         const fulfilledState = state;
         fulfilledState.isLoading = false;
-        fulfilledState.assets = action.payload;
+        fulfilledState.rates = action.payload;
       })
-      .addCase(getAssets.rejected, (state) => {
+      .addCase(getRates.rejected, (state) => {
         const rejectedState = state;
         rejectedState.isLoading = false;
       });
   },
 });
 
-// export const { reserveRocket, cancelReserveRocket } = coinsSlice.actions;
-export default coinsSlice.reducer;
+// export const { reserveRocket, cancelReserveRocket } = assetsSlice.actions;
+export default ratesSlice.reducer;
