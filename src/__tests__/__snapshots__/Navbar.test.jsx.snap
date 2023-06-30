@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar.jsx renders propperly renders correctly 1`] = `
+<nav
+  className="wrapper"
+>
+  <div
+    className="navbar"
+  >
+    <div
+      className="navHeader"
+    >
+      <div
+        className="arrowContainer"
+      >
+        <a
+          className="visible"
+          href="/assets"
+          onClick={[Function]}
+        >
+          <img
+            alt="Icon"
+            className="logoIcon"
+            src="back_icon.png"
+          />
+        </a>
+      </div>
+      <div
+        className="hContainer"
+      >
+        <h1>
+          CoinCap
+        </h1>
+        <h2 />
+      </div>
+      <div />
+    </div>
+    <div
+      className="inputContainer"
+    >
+      <input
+        className="input"
+        onChange={[Function]}
+        placeholder="Search by Asset name..."
+        type="text"
+      />
+    </div>
+  </div>
+  <div
+    className="separator"
+  />
+</nav>
+`;
