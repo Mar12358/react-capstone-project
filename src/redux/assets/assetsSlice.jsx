@@ -24,21 +24,7 @@ export const getAssets = createAsyncThunk(
 const assetsSlice = createSlice({
   name: 'assets',
   initialState,
-  reducers: {
-    /* searchAssetByName: (state, action) => {
-      const newState = state;
-      const assetName = action.payload;
-      console.log(assetName);
-      // newState.assets = state.assets.filter((asset) => asset.name === assetName);
-    }, */
-    /* cancelReserveRocket: (state, action) => {
-      const rocketId = action.payload;
-      const newState = state;
-      newState.rockets = state.rockets.map((rocket) => (
-        rocket.rocket_id !== rocketId ? rocket : { ...rocket, reserved: false }
-      ));
-    }, */
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getAssets.pending, (state) => {
