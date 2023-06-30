@@ -22,9 +22,6 @@ const Assets = () => {
     navigate(`/assets/${symbolId}`);
   };
 
-  /* const handleCancelReserveRocket = (id) => {
-    dispatch(cancelReserveRocket(id));
-  }; */
   if (error) return <h2>Something went wrong</h2>;
   let cont = 0;
   let aux = 0;
