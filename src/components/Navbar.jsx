@@ -14,7 +14,7 @@ const Navbar = () => {
     if (assetName === '') {
       navigate('/assets');
     } else {
-      navigate(`/search/${assetName}`);
+      navigate(`/assets/${assetName}`);
     }
   };
 
