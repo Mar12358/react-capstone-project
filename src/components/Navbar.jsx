@@ -1,34 +1,27 @@
-/* import { NavLink } from 'react-router-dom';
-import Icon from '../Assets/Icon.png';
+import { NavLink } from 'react-router-dom';
+import Icon from '../Assets/back_icon.png';
 import styles from '../styles/Navbar.module.css';
 
-const links = [
-  { path: '/rockets', text: 'Rockets' },
-  { path: '/missions', text: 'Missions' },
-  { path: '/profile', text: 'Profile' },
-];
+const link = { path: '/assets', text: 'Assets' };
+
 const Navbar = () => (
   <nav className={styles.wrapper}>
     <div className={styles.navbar}>
       <div className={styles.navlogo}>
-        <img className={styles.logoIcon} src={Icon} alt="Icon" />
-        <h1>Space Travelers&apos; Hub</h1>
+        <NavLink
+          to={link.path}
+          className={({ isActive }) => (isActive ? styles.active : styles.none)}
+        >
+          <img className={styles.logoIcon} src={Icon} alt="Icon" />
+        </NavLink>
+        <h1>CoinCap App</h1>
       </div>
       <div>
-        <ul className={styles.navItems}>
-          {links.map((link) => (
-            <li key={link.text}>
-              <NavLink
-                to={link.path}
-                className={({ isActive }) => (isActive ? styles.active : styles.none)}
-              >
-                {link.text}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        <input type="text" />
+        <button type="button">Search</button>
       </div>
     </div>
+    <div className={styles.separator} />
   </nav>
 );
-export default Navbar; */
+export default Navbar;

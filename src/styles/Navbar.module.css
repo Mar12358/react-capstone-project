@@ -1,0 +1,13 @@
+p {
+  margin: 0;
+}
+
+.wrapper {
+  background-color: brown;
+}
+
+.separator {
+  border: 1px solid grey;
+  height: 5vw;
+  background-color: rgb(153, 93, 93);
+}

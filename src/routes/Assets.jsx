@@ -33,7 +33,6 @@ const Assets = () => {
     <h1>Loading...</h1>
   ) : (
     <>
-      <hr />
       <div className={styles.assetsWrapper}>
         {assets.data.map((asset) => {
           cont += 1;
