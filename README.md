@@ -176,7 +176,6 @@ You can deploy this project using:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - **Add User Login**
-- **Testing**
 
 <!-- > Mention future features. -->
 
