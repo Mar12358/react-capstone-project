@@ -1,0 +1,34 @@
+p {
+  margin: 0;
+}
+
+.keyValuePairA,
+.keyValuePairB {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 10vh;
+}
+
+.keyValuePairA {
+  background-color: brown;
+}
+
+.keyValuePairB {
+  background-color: rgb(197, 57, 57);
+}
+
+.key,
+.value {
+  display: flex;
+  align-items: center;
+  padding: 5vw;
+  word-break: break-all;
+}
+
+.key {
+  justify-content: flex-start;
+}
+
+.value {
+  justify-content: flex-end;
+}

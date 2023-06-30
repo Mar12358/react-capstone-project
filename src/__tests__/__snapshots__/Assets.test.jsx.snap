@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Assets renders assets correctly 1`] = `
+<div
+  class="symbol"
+>
+  BTC
+</div>
+`;
+
+exports[`Assets renders assets correctly 2`] = `
+<div
+  class="symbol"
+>
+  ETH
+</div>
+`;
+
+exports[`Assets renders error message 1`] = `
+<h2>
+  Something went wrong
+</h2>
+`;
+
+exports[`Assets renders loading state 1`] = `
+<h1>
+  Loading...
+</h1>
+`;

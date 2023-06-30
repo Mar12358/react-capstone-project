@@ -1,0 +1,46 @@
+p {
+  margin: 0;
+}
+
+.wrapper {
+  background-color: brown;
+}
+
+.separator {
+  border: 1px solid grey;
+  height: 5vw;
+  background-color: rgb(153, 93, 93);
+}
+
+.logoIcon {
+  height: 7vw;
+}
+
+.navHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.hidden {
+  display: none;
+}
+
+.hContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 4vw;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 4vw;
+}
