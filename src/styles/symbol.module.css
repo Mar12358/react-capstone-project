@@ -2,10 +2,6 @@ p {
   margin: 0;
 }
 
-.detailsWrapper {
- 
-}
-
 .keyValuePairA,
 .keyValuePairB {
   display: grid;
@@ -35,5 +31,4 @@ p {
 
 .value {
   justify-content: flex-end;
-  
 }

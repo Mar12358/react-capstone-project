@@ -44,6 +44,7 @@ const Assets = () => {
             classSwitcher = (cont % 2 === 0) ? styles.assetA : styles.assetB;
           }
           return (
+
             <button
               key={asset.id}
               className={classSwitcher}
@@ -60,6 +61,7 @@ const Assets = () => {
                 </p>
               </div>
             </button>
+
           );
         })}
       </div>

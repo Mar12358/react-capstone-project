@@ -25,14 +25,13 @@ const assetsSlice = createSlice({
   name: 'assets',
   initialState,
   reducers: {
-    /* reserveRocket: (state, action) => {
-      const rocketId = action.payload;
+    /* searchAssetByName: (state, action) => {
       const newState = state;
-      newState.assets = state.rockets.map((rocket) => (
-        rocket.rocket_id !== rocketId ? rocket : { ...rocket, reserved: true }
-      ));
-    },
-    cancelReserveRocket: (state, action) => {
+      const assetName = action.payload;
+      console.log(assetName);
+      // newState.assets = state.assets.filter((asset) => asset.name === assetName);
+    }, */
+    /* cancelReserveRocket: (state, action) => {
       const rocketId = action.payload;
       const newState = state;
       newState.rockets = state.rockets.map((rocket) => (
@@ -58,5 +57,5 @@ const assetsSlice = createSlice({
   },
 });
 
-// export const { reserveRocket, cancelReserveRocket } = assetsSlice.actions;
+export const { searchAssetByName } = assetsSlice.actions;
 export default assetsSlice.reducer;

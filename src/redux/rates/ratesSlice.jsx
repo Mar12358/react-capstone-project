@@ -14,7 +14,6 @@ export const getRates = createAsyncThunk(
   async (thunkAPI) => {
     try {
       const resp = await axios(urlRates);
-      console.log(resp.data);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

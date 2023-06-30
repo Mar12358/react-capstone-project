@@ -11,9 +11,7 @@ export const getSymbol = createAsyncThunk(
   'Symbol/getSymbol',
   async (id, thunkAPI) => {
     try {
-      // console.log(`https://api.coincap.io/v2/assets/${id}`);
       const resp = await axios(`https://api.coincap.io/v2/assets/${id}`);
-      console.log(resp.data);
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -24,22 +22,7 @@ export const getSymbol = createAsyncThunk(
 const symbolSlice = createSlice({
   name: 'symbol',
   initialState,
-  reducers: {
-    /* reserveRocket: (state, action) => {
-      const rocketId = action.payload;
-      const newState = state;
-      newState.assets = state.rockets.map((rocket) => (
-        rocket.rocket_id !== rocketId ? rocket : { ...rocket, reserved: true }
-      ));
-    },
-    cancelReserveRocket: (state, action) => {
-      const rocketId = action.payload;
-      const newState = state;
-      newState.rockets = state.rockets.map((rocket) => (
-        rocket.rocket_id !== rocketId ? rocket : { ...rocket, reserved: false }
-      ));
-    }, */
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getSymbol.pending, (state) => {
@@ -53,7 +36,8 @@ const symbolSlice = createSlice({
       })
       .addCase(getSymbol.rejected, (state) => {
         const rejectedState = state;
-        rejectedState.isLoading = false;
+        rejectedState.isLoading = true;
+        rejectedState.isRejected = true;
       });
   },
 });
