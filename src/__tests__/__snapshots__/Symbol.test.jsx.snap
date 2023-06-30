@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Symbol renders loading state 1`] = `
+<h2>
+  Loading...
+</h2>
+`;
+
+exports[`Symbol renders symbol details correctly 1`] = `
+<p>
+  name
+</p>
+`;
+
+exports[`Symbol renders symbol details correctly 2`] = `
+<p>
+  symbol
+</p>
+`;
+
+exports[`Symbol renders symbol details correctly 3`] = `
+<p>
+  priceUsd
+</p>
+`;

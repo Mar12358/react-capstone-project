@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Symbol from '../routes/Symbol';
 import { getSymbol } from '../redux/symbol/symbolSlice';
+import '@testing-library/jest-dom/extend-expect';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
