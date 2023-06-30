@@ -18,6 +18,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
+  - [🚀 Presentation ](#-presentation-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -77,6 +78,12 @@
 <!-- > Add a link to your deployed project. -->
 
 - <a href="https://coincapstone.onrender.com/">Coin Cap Live Demo</a>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Presentation <a name="presentation"></a>
+
+<a href="https://www.loom.com/share/82160a715460428da6696bc36ad8beef?sid=5fda4ac7-4891-46e9-800b-113f569c695f">Presentation Video</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,7 +176,7 @@ You can deploy this project using:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - **Add User Login**
-- **Navigate to Details of each Coin**
+- **Testing**
 
 <!-- > Mention future features. -->
 
@@ -194,8 +201,11 @@ Give a ⭐️ if you like this project!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-Thanks to all Microverse Team. &hearts;
+**Original design idea by ***Nelson Sakwa*** in Behance.** <br>
+**Her design was used for the project.**
+- Behance: [Nelson Sakwa](https://www.behance.net/sakwadesignstudio)
+- LinkedIn: [Nelson Sakwa](https://www.linkedin.com/in/nelson-sakwa-73581435/?originalSubdomain=ke/)
+- Dribble: [Nelson Sakwa](https://dribbble.com/nelsonbreeza)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,6 +220,8 @@ Thanks to all Microverse Team. &hearts;
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 This project is [MIT](./LICENSE.md) licensed.
 
