@@ -9,12 +9,12 @@ import styles from '../styles/assets.module.css';
 const Assets = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { assets, isLoading, error } = useSelector((state) => state.assets);
+  const { filterData, isLoading, error } = useSelector((state) => state.assets);
   useEffect(() => {
-    if (assets.length === 0) {
+    if (filterData.length === 0) {
       dispatch(getAssets());
     }
-  }, [dispatch, assets.length]);
+  }, [dispatch, filterData.length]);
 
   const handleAssetClick = (symbolId) => {
     navigate(`/assets/${symbolId}`);
@@ -24,12 +24,12 @@ const Assets = () => {
   let cont = 0;
   let aux = 0;
   let switching = false;
-  return (isLoading || assets.length === 0) ? (
+  return (isLoading || filterData.length === 0) ? (
     <h1>Loading...</h1>
   ) : (
     <>
       <div className={styles.assetsWrapper}>
-        {assets.data.map((asset) => {
+        {filterData.map((asset) => {
           cont += 1;
           if (cont - aux === 3) { switching = !switching; aux = cont - 1; }
           let classSwitcher;

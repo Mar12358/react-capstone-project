@@ -5,6 +5,7 @@ const urlAssets = 'https://api.coincap.io/v2/assets';
 
 const initialState = {
   assets: [],
+  filterData: [],
   isLoading: false,
   error: undefined,
 };
@@ -24,7 +25,15 @@ export const getAssets = createAsyncThunk(
 const assetsSlice = createSlice({
   name: 'assets',
   initialState,
-  reducers: {},
+  reducers: {
+    filter: (state, { payload }) => {
+      const filteredData = state.assets.data.filter((element) => {
+        const name = element.name.toLowerCase();
+        return name.includes(payload.toLowerCase());
+      });
+      return { ...state, filterData: filteredData };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAssets.pending, (state) => {
@@ -35,6 +44,7 @@ const assetsSlice = createSlice({
         const fulfilledState = state;
         fulfilledState.isLoading = false;
         fulfilledState.assets = action.payload;
+        fulfilledState.filterData = action.payload.data;
       })
       .addCase(getAssets.rejected, (state) => {
         const rejectedState = state;
@@ -43,5 +53,5 @@ const assetsSlice = createSlice({
   },
 });
 
-export const { searchAssetByName } = assetsSlice.actions;
+export const { filter } = assetsSlice.actions;
 export default assetsSlice.reducer;

@@ -1,22 +1,16 @@
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Icon from '../Assets/back_icon.png';
 import styles from '../styles/Navbar.module.css';
+import { filter } from '../redux/assets/assetsSlice';
 
 const link = { path: '/assets', text: 'Assets' };
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const location = useLocation();
   const currentPath = location.pathname.split('/').pop();
   const capitalizedPath = currentPath.charAt(0).toUpperCase() + currentPath.slice(1);
-
-  const handleOnChange = (assetName) => {
-    if (assetName === '') {
-      navigate('/assets');
-    } else {
-      navigate(`/assets/${assetName}`);
-    }
-  };
 
   return (
     <nav className={styles.wrapper}>
@@ -41,7 +35,7 @@ const Navbar = () => {
             type="text"
             className={styles.input}
             placeholder="Search by Asset name..."
-            onChange={(e) => handleOnChange(e.target.value)}
+            onChange={(e) => dispatch(filter(e.target.value))}
           />
         </div>
       </div>
